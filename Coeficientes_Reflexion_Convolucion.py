@@ -53,7 +53,9 @@ def graficar_separadas(profundidades : np.arange, coeficientes_R : list, convolu
 	ax_mag.set_ylabel('Convolución')
 
 	#Dibujamos las graficas, diferenciandolas con colores.
-	ax_orig.plot(profundidades,coeficientes_R, 'b')
+	ax_orig.vlines(profundidades, 0, coeficientes_R, 'b', label='Coeficiente de Reflexión')
+	ax_orig.hlines(0, 0, profundidades[-1], 'b')
+	#ax_orig.plot(profundidades,coeficientes_R, 'b')
 	ax_mag.plot(profundidades, convolucion, color='r')
 	
 	#Ajusta las graficas en el marco, para que queden espaciadas.
@@ -77,7 +79,8 @@ def graficar_juntas(profundidades : np.arange, coeficientes_R : list, convolucio
 	plt.ylabel('CR y Conv')
 	
 	#Dibujamos las graficas.
-	plt.plot(profundidades, coeficientes_R, 'b', label='Coeficiente de Reflexión')
+	plt.vlines(profundidades, 0, coeficientes_R, 'b', label='Coeficiente de Reflexión')
+	plt.hlines(0, 0, profundidades[-1], 'b')
 	plt.plot(profundidades, convolucion, 'r', label='Convolución')
 	
 	#Generamos una leyenda, para identificar las graficas.
